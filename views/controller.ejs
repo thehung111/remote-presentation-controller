@@ -1,0 +1,67 @@
+<div id="mainController">
+	<h4>Remote Presentation Controller</h4>
+	<div id="mycontrols" align="center">
+		
+		<div id="pptSelector">
+			<select name="whichppt" id="whichppt">
+	                <option value="demo">Demo Presentation</option>
+	                <option value="myppt">My Presentation</option>
+	        </select>
+        </div>
+        
+		<table>
+			<tr>
+				<td></td>
+				<td><img class="ctl_btn up" cmd="up" src="/images/arrow_up.png" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><img class="ctl_btn left" cmd="left" src="/images/arrow_left.png" /></td>
+				<td></td>
+				<td><img class="ctl_btn right" cmd="right" src="/images/arrow_right.png" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><img class="ctl_btn down" cmd="down"  src="/images/arrow_down.png" /></td>
+				<td></td>
+			</tr>
+	
+			
+		</table>
+		
+		
+		
+	</div>
+	
+</div>
+
+
+<script src="lib/js/head.min.js"></script>
+<script>
+
+	head.js( '/js/jquery-1.7.2.min.js' ,'/socket.io/socket.io.js' , function() {
+		
+		// connect
+		var socket = io.connect('/');	
+		
+		socket.on('connect', function () {
+			console.log("controller connected.");
+			
+			$('#mycontrols .ctl_btn').bind('click', function(){
+				// send command (up/down/left/right)
+				var cmd = $(this).attr('cmd');
+			
+				// which presentation should I control?
+				var whichppt = $('#whichppt').val();
+				
+				// send command to server
+				socket.emit('command', {'id' : whichppt, 'txt': cmd } );
+				
+			});
+		
+				
+		});
+		
+	} );
+	
+</script>

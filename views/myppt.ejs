@@ -1,0 +1,86 @@
+<div class="reveal">
+
+	<!-- Used to fade in a background when a specific slide state is reached -->
+	<div class="state-background"></div>
+	
+	<!-- Any section element inside of this container is displayed as a slide -->
+	<div class="slides">
+		<section>
+			<h1>My Presentation</h1>
+			<h3 class="inverted">This is slide 1 description</h3>
+			<script>
+				// Delicously hacky. Look away.
+				if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+			</script>
+		</section>
+		
+		<section>
+			<h2>Slide 2</h2>
+			<p>
+				Please update slide 2 description here.
+			</p>
+			
+		</section>
+		
+		<!-- Example of nested vertical slides -->
+		<section>
+			<section>
+				<h2>Vertical Slides</h2>
+				<p>
+					Slides can be nested inside of other slides,<br/>
+					try pressing <a href="#/2/1">down</a>.
+				</p>
+				<a href="#/2/1" class="image">
+					<img src="/images/arrow_down.png">
+				</a>
+			</section>
+			<section>
+				<h2>Basement Level 1</h2>
+				<p>Press down or up to navigate.</p>
+			</section>
+			<section>
+				<h2>Basement Level 2</h2>
+				<p>Description for basement 2</p>
+			</section>
+			<section>
+				<h2>Basement Level 3</h2>
+				<p>This is it, time to go back up.</p>
+				<a href="#/2" class="image">
+					<img src="/images/arrow_up.png">
+				</a>
+			</section>
+		</section>
+
+		<section>
+			<h2>Holistic Overview</h2>
+			<p>
+				Press <strong>ESC</strong> to enter the slide overview!
+			</p>
+		</section>
+
+		<section>
+			<h2>Works in Mobile Safari</h2>
+			<p>
+				Try it out! You can swipe through the slides pinch your way to the overview.
+			</p>
+		</section>
+
+	</div>
+
+	<!-- The navigational controls UI -->
+	<aside class="controls">
+		<a class="left" href="#">&#x25C4;</a>
+		<a class="right" href="#">&#x25BA;</a>
+		<a class="up" href="#">&#x25B2;</a>
+		<a class="down" href="#">&#x25BC;</a>
+	</aside>
+
+	<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+	<div class="progress"><span></span></div>
+	
+</div>
+
+
+
+
+
