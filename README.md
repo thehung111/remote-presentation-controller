@@ -7,6 +7,7 @@ Presenter can use their mobile devices to control the slides via the controller 
 ## Install
 
 1) Install node.js
+
 2) Run
 
 node app.js
