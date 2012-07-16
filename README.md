@@ -4,6 +4,9 @@ Remote Presentation Controller
 Simple Remote Presentation Controller for Reveal.js using Node.js.
 Presenter can use their mobile devices to control the slides via the controller web interface.
 
+<img src="http://www.ngo-hung.com/files/images/RemotePresenter.png" />
+[Blog Link](http://www.ngo-hung.com/blog/2012/07/16/remote-controller-for-reveal-js-presentation)
+
 ## Install
 
 1) Install node.js
