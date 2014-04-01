@@ -27,7 +27,6 @@ exports.setupRemotePresenter = function(app, io, config){
 	// url is matching the id for presentations
 	app.get('/myppt', myPpt);
 	
-	
 	app.get('/controller', controllerRoute);
 	
 	
@@ -60,19 +59,29 @@ exports.setupRemotePresenter = function(app, io, config){
 				// update ppt information
 				if(cmd == 'up')
 				{
+					curppt.frame=-1;
 					curppt.indexv--;
 				}
 				else if(cmd == 'down')
 				{
+					curppt.frame=-1;
 					curppt.indexv++;
 				}
 				else if(cmd == 'left')
 				{
+					curppt.frame=-1;
+					curppt.indexv=0;
 					curppt.indexh--;
 				}
 				else if(cmd == 'right')
 				{
+					curppt.frame=-1;
+					curppt.indexv=0;
 					curppt.indexh++;
+				}else if(cmd == 'fnext'){
+					curppt.frame++;
+				}else if(cmd == 'fprev'){
+					curppt.frame--;
 				}
 				
 				if(curppt.indexh < 0 )
@@ -80,9 +89,11 @@ exports.setupRemotePresenter = function(app, io, config){
 					
 				if(curppt.indexv < 0 )
 					curppt.indexv = 0;
+
+				if(curppt.frame < -1)
+					curppt.frame = -1;
 				
 				presentations[pptId] = curppt;
-				
 				// send the new data for update
 				socket.broadcast.emit('updatedata', curppt);
 			}

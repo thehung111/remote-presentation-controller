@@ -5,13 +5,15 @@ var config = {
 			id: 'demo',  // id for each presentation, currently same as the url
 			title : 'Demo Presentation',
 			indexh : 0,  // initial slide horizontal index
-			indexv : 0,  // initial slide veriticlal index
+			indexv : 0, // initial slide veriticlal index
+			frame: -1,
 		},
 		'myppt' : { // powerpoint presentation
 			id: 'myppt', 
 			title : 'My Presentation',
 			indexh : 0,  // initial slide horizontal index
-			indexv : 0,  // initial slide veriticlal index
+			indexv : 0, // initial slide veriticlal index
+			frame: -1,
 		}
 		
 	}
