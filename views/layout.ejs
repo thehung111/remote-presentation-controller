@@ -125,13 +125,10 @@
 				
 				if(data.id == presentation_id)
 				{
-					// if(data.fnext) Reveal.nextFragment();
-					// else if(data.fprev) Reveal.prevFragment();
-					// else 
-					// go to the respective slide
-					//Reveal.navigateTo(data.indexh, data.indexv);
-					console.log(data.id)
-					Reveal.slide(data.indexh,data.indexv,data.frame);
+					if(data['cmd']){
+						if(data.cmd=="prev") Reveal.prev();
+						else Reveal.next();
+					}else Reveal.slide(data.indexh,data.indexv,data.frame);
 				}
 			});
 			

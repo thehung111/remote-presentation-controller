@@ -56,6 +56,7 @@ exports.setupRemotePresenter = function(app, io, config){
 			if(presentations[pptId])
 			{
 				var curppt = presentations[pptId];
+				curppt.cmd='';
 				// update ppt information
 				if(cmd == 'up')
 				{
@@ -82,6 +83,10 @@ exports.setupRemotePresenter = function(app, io, config){
 					curppt.frame++;
 				}else if(cmd == 'fprev'){
 					curppt.frame--;
+				}else if(cmd == "prev"){
+					curppt.cmd = "prev";
+				}else if(cmd == "next"){
+					curppt.cmd = "next";
 				}
 				
 				if(curppt.indexh < 0 )

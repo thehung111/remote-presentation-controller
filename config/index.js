@@ -7,6 +7,7 @@ var config = {
 			indexh : 0,  // initial slide horizontal index
 			indexv : 0, // initial slide veriticlal index
 			frame: -1,
+			cmd: '',
 		},
 		'myppt' : { // powerpoint presentation
 			id: 'myppt', 
@@ -14,6 +15,7 @@ var config = {
 			indexh : 0,  // initial slide horizontal index
 			indexv : 0, // initial slide veriticlal index
 			frame: -1,
+			cmd: '',
 		}
 		
 	}
