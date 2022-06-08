@@ -1,15 +1,16 @@
 <div id="mainController">
-	<h4>Remote Presentation Controller</h4>
+	<h4 style="margin:10px auto;">Remote Presentation Controller</h4>
 	<div id="mycontrols" align="center">
 		
 		<div id="pptSelector">
-			<select name="whichppt" id="whichppt">
+			<select name="whichppt" id="whichppt" style="width:150px;">
 	                <option value="demo">Demo Presentation</option>
 	                <option value="myppt">My Presentation</option>
 	        </select>
+	        <input type="checkbox" name="" id="cbxmode" checked><label for="cbxmode" style="font-size:24px;">single viewer</label>
         </div>
         
-		<table>
+		<table id="multi" class="cp">
 			<tr>
 				<td></td>
 				<td><img class="ctl_btn up" cmd="up" src="/images/arrow_up.png" /></td>
@@ -25,22 +26,50 @@
 				<td><img class="ctl_btn down" cmd="down"  src="/images/arrow_down.png" /></td>
 				<td></td>
 			</tr>
+			<tr>
+				<td><img class="ctl_btn left" cmd="fprev" src="/images/arrow_left.png" /></td>
+				<td></td>
+				<td><img class="ctl_btn left" cmd="fnext" src="/images/arrow_right.png" /></td>
+			</tr>
 	
 			
 		</table>
-		
-		
+		<table id="single" class="cp">
+			<tr>
+				<td class="ctl_btn left" cmd="prev">&larr;Prev</td>
+				<td class="ctl_btn right" cmd="next">Next&rarr;</td>
+			</tr>
+		</table>
 		
 	</div>
-	
 </div>
-
 
 <script src="lib/js/head.min.js"></script>
 <script>
 
 	head.js( '/js/jquery-1.7.2.min.js' ,'/socket.io/socket.io.js' , function() {
 		
+		$(function(){
+			setVisible();
+			setwh();
+			$("#cbxmode").click(function(){
+				setVisible();
+			});
+		});
+		var setVisible=function(){
+			$(".cp").hide();
+			if($("#cbxmode").prop("checked")) $("#single").show();
+			else $("#multi").show();
+		},
+		setwh=function(){
+			console.log(1);
+			$("#single td").height(function(){
+				return $(window).height()-220;
+			}).width(function(){
+				return $(window).width()/2.2;
+			}).css("text-align","center");
+		};
+		window.onresize=setwh;
 		// connect
 		var socket = io.connect('/');	
 		
